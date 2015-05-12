@@ -54,6 +54,7 @@
      <Compile Include="Assets\ServoMotorConfigurableTest.cs" />
      <Compile Include="Assets\ServoMotorHingeJoint.cs" />
      <Compile Include="Assets\ServoMotorHingeJointTest.cs" />
+     <None Include="Assets\Data\movements.txt" />
      <None Include="Assets\Data\servoLimits.txt" />
      <None Include="Assets\prototype_textures\readme.txt" />
      <None Include="Assets\Data\motions.txt" />
