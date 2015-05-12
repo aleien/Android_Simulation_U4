@@ -1,19 +1,17 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Data\movements.txt">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ServoManager.cs">
     <Files>
-      <File FileName="Assets\Manager.cs" Line="1" Column="1" />
-      <File FileName="Assets\ServoMotorConfigurable.cs" Line="31" Column="42" />
-      <File FileName="Assets\Data\motions.txt" Line="6" Column="7" />
-      <File FileName="Assets\ServoMotorHingeJoint.cs" Line="64" Column="2" />
       <File FileName="Assets\ServoManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Data\movements.txt" Line="1" Column="14" />
+      <File FileName="Assets\Manager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Data\movements.txt" Line="1" Column="1" />
       <File FileName="Assets\Movement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Motion.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Users\Admin\Documents\Android_Simulation_U4\Assets\Manager.cs" line="70" />
+      <Breakpoint file="C:\Users\Admin\Documents\Android_Simulation_U4\Assets\Manager.cs" line="109" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

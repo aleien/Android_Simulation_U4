@@ -5,7 +5,7 @@ public class Movement
 {
 	public readonly String name = "";
 	
-	private List<Motion> motionList = new List<Motion>();
+	public List<Motion> motionList = new List<Motion>();
 	private List<float> overallCompensationalForce = new List<float>();
 	
 	

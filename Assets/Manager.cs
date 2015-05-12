@@ -9,11 +9,14 @@ public class Manager : MonoBehaviour {
 	private GameObject[] servoArray;
 	
 	private string fileMotions = @"Assets\Data\motions.txt";
+	private string fileMovements = @"Assets\Data\movements.txt";
 	private string fileServoLimits = @"Assets\Data\servoLimits.txt";
 	
 	private List<Motion> motionsList = new List<Motion>();
+	private List<Movement> movementsList = new List<Movement>();
 	
 	private static int clickCounter = 0;
+	private static int movementCounter = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -24,7 +27,7 @@ public class Manager : MonoBehaviour {
 			print ("File doesn't exist");
 			
 		}
-		
+		movementsList = CreateMovements(ReadFromFile(fileMovements));
 	}
 	
 	// Update is called once per frame
@@ -66,7 +69,26 @@ public class Manager : MonoBehaviour {
 		return motionsList;
 	}
 	
-	public void OnButton() {
+	List<Movement> CreateMovements(List<string> stringList) {
+		List<Movement> resultList = new List<Movement>();
+		foreach(string currentString in stringList) {
+			string[] splittedString = currentString.Split(',');
+			string movementName = splittedString[0];
+			Movement m = new Movement(movementName);
+			
+			for (int i = 1; i < splittedString.Length; i++) {
+				foreach (Motion currentMotion in motionsList) {
+					if (splittedString[i].Equals(currentMotion.name)) {
+						m.Add (currentMotion);
+					}
+				}
+			}
+			resultList.Add(m);
+		}
+		return resultList;
+	}
+	
+	public void OnMotionButton() {
 		print ("ClickCounter: " + clickCounter.ToString("00"));		
 		foreach (GameObject g in servoArray) {	
 			if (clickCounter < motionsList.Count) {
@@ -78,14 +100,24 @@ public class Manager : MonoBehaviour {
 				}		
 			}			
 		}
-
-			
-			//if (g.name.Contains(clickCounter.ToString("00"))) {
-				//
-			//	g.GetComponent<ServoMotorHingeJoint>().Setup(0, 0, 100);
-			//}		
 		
 		clickCounter++;
 		
+	}
+	
+	public void OnMovementButton() {
+		foreach (Motion m in movementsList[movementCounter].motionList) {	
+			
+			foreach (GameObject g in servoArray) {	
+				Dictionary<string, int> t = m.servoAngles;
+				foreach(KeyValuePair<string, int> servoAnglePair in t) {
+					if (g.name.Substring(g.name.Length - 2).Equals(servoAnglePair.Key)) {
+						g.GetComponent<ServoMotorConfigurable>().Setup(servoAnglePair.Value);
+					}
+				}				
+			}
+		}
+		
+		movementCounter++;
 	}
 }
